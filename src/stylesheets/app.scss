@@ -1,0 +1,44 @@
+
+/* -----
+Import from node modules
+----- */
+@import 'normalize.css/normalize';
+
+/* -----
+Base
+----- */
+@import 'base/_vars';
+@import "base/_functions";
+@import "base/_mixins";
+@import "base/_helpers";
+@import 'base/_medias';
+@import 'base/_fonts';
+@import 'base/_typography';
+@import 'base/_images';
+@import 'base/_video';
+
+* {
+	margin: 0;
+	padding: 0;
+
+	box-sizing: border-box;
+
+	text-rendering: optimizeLegibility;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html,
+body{
+  background: $base-background;
+  backface-visibility: hidden;
+	user-select: none;
+}
+
+/* -----
+Components
+----- */
+@import 'components/_buttons';
