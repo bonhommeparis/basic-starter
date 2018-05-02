@@ -7,16 +7,23 @@ html {
   color: $base-font-color;
   font-size: $px-base;
   font-weight: $regular;
+  line-height: $base-line-height;
 
-  @include mobile { font-size: $px-mobile; }
-  @include tablet { font-size: $px-tablet; }
+  @include mobile  { font-size: $px-mobile; }
+  @include phablet { font-size: $px-phablet; }
+  @include tablet  { font-size: $px-tablet; }
   @include desktop { font-size: $px-base; }
 }
 
+::selection {
+  background-color: $selection-background-color;
+  color: $selection-text-color;
+  text-shadow: none;
+}
 
-/* -----
-Global
------ */
+// --------
+// Global
+// --------
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0;
@@ -34,9 +41,7 @@ ul {
   margin: 0;
 }
 
-/* -----
-Headings
------ */
-h1, h2, h3, h4, h5, h6 {
-  text-align: center;
-}
+// --------
+// Headings
+// --------
+.Title-1 {}

@@ -1,19 +1,28 @@
-# Front-End Starter
+# Basic Starter
 
-Basic starter to make HTML website.
+Basic starter for front-end projects.
 
-## Basic Usage
-Make sure Node >=6.3.0 is installed.
+## Requirements
 
-#### Install Dependencies
+| Prerequisite    | How to check  | How to install                   |
+| --------------- | ------------- | -------------------------------- |
+| Node.js 8.10.9  | `node -v`     | [nodejs.org](https://nodejs.org) |
+
+## Getting started
 ```
 yarn
 ```
 
-#### Configuration
+or
+
+```
+npm
+```
+
+### Configuration
 Directory and top level settings are convienently exposed in gulpfile.js/config.json. Use this file to update paths to match the directory structure of your project, and to adjust task options.
 
-#### Start compiling, serving, and watching files
+### Start compiling, serving, and watching files
 ```
 yarn start
 ```
@@ -30,6 +39,18 @@ yarn run production
 
 JS and CSS are uglified and minified, HTML are minified and console give you a file size reporting.
 
+### Deploy
+```
+yarn run deploy
+```
+
+Launch `production` task and deploy the destination folder to the github's page.
+
+## HTML
+
+## CSS
+
+## Javascript
 
 ## Special Thanks
 

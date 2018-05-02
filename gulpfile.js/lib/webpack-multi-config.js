@@ -3,6 +3,7 @@
 if( !TASK_CONFIG.javascripts ) return;
 
 const path          = require('path');
+const projectPath   = require('./projectPath')
 const webpack       = require('webpack');
 const querystring   = require('querystring');
 const pathToUrl     = require('./pathToUrl');
@@ -12,9 +13,10 @@ module.exports = function (env) {
 
   process.env['BABEL_ENV'] = process.env['BABEL_ENV'] || process.env['NODE_ENV'] || env;
 
-  const jsSrc       = path.resolve(process.env.PWD, PATH_CONFIG.src, PATH_CONFIG.javascripts.src);
-  const jsDest      = path.resolve(process.env.PWD, PATH_CONFIG.dest, PATH_CONFIG.javascripts.dest);
+  const jsSrc       = projectPath(PATH_CONFIG.src, PATH_CONFIG.javascripts.src);
+  const jsDest      = projectPath(PATH_CONFIG.dest, PATH_CONFIG.javascripts.dest);
   const publicPath  = pathToUrl(TASK_CONFIG.javascripts.publicPath || PATH_CONFIG.javascripts.dest, '/');
+  const rev         = TASK_CONFIG.production.rev && env === 'production'
 
   function ensureLeadingDot(string) {
     return string.indexOf('.') === 0 ? string : `.${string}`;
@@ -24,13 +26,12 @@ module.exports = function (env) {
   TASK_CONFIG.javascripts.babelLoader.options = TASK_CONFIG.javascripts.babelLoader.options || TASK_CONFIG.javascripts.babel;
   TASK_CONFIG.javascripts.babelLoader.test = TASK_CONFIG.javascripts.babelLoader.test || new RegExp(`(\\${extensions.join('$|')}$)`);
 
-
   const webpackConfig = {
     context: jsSrc,
     entry: TASK_CONFIG.javascripts.entry,
     output: {
       path: path.normalize(jsDest),
-      // filename: rev ? '[name]-[hash].js' : '[name].js',
+      filename: rev ? '[name]-[hash].js' : '[name].js',
       filename: '[name].js',
       publicPath: publicPath
     },
@@ -38,7 +39,7 @@ module.exports = function (env) {
     resolve: {
       extensions: extensions,
       alias: TASK_CONFIG.javascripts.alias,
-      modules: [jsSrc, path.resolve(process.env.PWD, 'node_modules')],
+      modules: [jsSrc, projectPath('node_modules')],
     },
     module: {
       rules: [ TASK_CONFIG.javascripts.babelLoader ]
@@ -53,7 +54,7 @@ module.exports = function (env) {
   if (env === 'development') {
     webpackConfig.devtool = TASK_CONFIG.javascripts.development.devtool || TASK_CONFIG.javascripts.devtool || false;
     webpackConfig.output.pathinfo = true;
-  
+
 
     // Create new entry object with webpack-hot-middleware and react-hot-loader (if enabled)
     if (!TASK_CONFIG.javascripts.hot || TASK_CONFIG.javascripts.hot.enabled !== false) {
@@ -75,9 +76,9 @@ module.exports = function (env) {
   }
 
   if (env === 'production') {
-    // if (rev) {
-    //   webpackConfig.plugins.push(new webpackManifest(PATH_CONFIG.javascripts.dest, PATH_CONFIG.dest));
-    // }
+    if (rev) {
+      webpackConfig.plugins.push(new webpackManifest(PATH_CONFIG.javascripts.dest, PATH_CONFIG.dest));
+    }
 
     const uglifyConfig = TASK_CONFIG.javascripts.production.uglifyJsPlugin;
     webpackConfig.devtool = TASK_CONFIG.javascripts.production.devtool;
@@ -98,7 +99,7 @@ module.exports = function (env) {
   if( TASK_CONFIG.javascripts.plugins ) {
     webpackConfig.plugins = webpackConfig.plugins.concat(TASK_CONFIG.javascripts.plugins(webpack) || []);
   }
-  
+
   webpackConfig.module.rules = webpackConfig.module.rules.concat(TASK_CONFIG.javascripts.loaders || []);
 
   // Additional plugins and loaders according to environment

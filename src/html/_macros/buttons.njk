@@ -1,0 +1,23 @@
+{#- ---------------------------------------------- Btn Basic
+-#}
+
+{%- macro btn( label='', id=null, attributes={}, modifiers=null ) -%}
+
+  {%- set tagName = 'button' -%}
+  {%- if id %}
+    {%- set attributes = attributes | set('data-btn', id) -%}
+  {% endif %}
+
+  {%- if attributes.href %}
+    {%- set tagName = 'a' -%}
+    {%- if attributes.target == '_blank' -%}
+      {%- set attributes = attributes | set('rel', 'noopener') -%}
+    {%- else -%}
+      {%- set attributes = attributes | set('target', '_self') -%}
+    {%- endif -%}
+  {% endif %}
+
+  <{{ tagName }} class='o-Btn{{ modifiers | getModifiers('o-Btn') }}' {{ attributes | convertToAttributes | safe }}>
+    {{ label }}
+  </{{ tagName }}>
+{%- endmacro -%}

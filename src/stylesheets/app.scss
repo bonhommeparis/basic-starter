@@ -1,44 +1,47 @@
+// ------------------------------------------------------------
+// App
+// ------------------------------------------------------------
 
-/* -----
-Import from node modules
------ */
+// -------------------------
+// Settings
+// -------------------------
+@import 'settings/variables';
+@import 'settings/colors';
+
+// -------------------------
+// Tools
+// -------------------------
+@import 'tools/functions';
+@import 'tools/mixins';
+@import 'tools/breakpoints';
+
+// -------------------------
+// Generic
+// -------------------------
 @import 'normalize.css/normalize';
+@import "generic/generic";
+@import "generic/medias";
+@import "generic/form";
 
-/* -----
-Base
------ */
-@import 'base/_vars';
-@import "base/_functions";
-@import "base/_mixins";
-@import "base/_helpers";
-@import 'base/_medias';
-@import 'base/_fonts';
-@import 'base/_typography';
-@import 'base/_images';
-@import 'base/_video';
+// -------------------------
+// Base
+// -------------------------
+@import 'base/fonts';
+@import 'base/typography';
+@import 'base/medias';
+@import 'base/helpers';
 
-* {
-	margin: 0;
-	padding: 0;
+// -------------------------
+// Objects
+// -------------------------
+@import "objects/buttons";
+@import "objects/form";
+@import "objects/layout";
 
-	box-sizing: border-box;
+// -------------------------
+// Components
+// -------------------------
 
-	text-rendering: optimizeLegibility;
-
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-
-html,
-body{
-  background: $base-background;
-  backface-visibility: hidden;
-	user-select: none;
-}
-
-/* -----
-Components
------ */
-@import 'components/_buttons';
+// -------------------------
+// Templates
+// -------------------------

@@ -1,11 +1,7 @@
 
 const config  = {
-
   /* ----- paths ----- */
-  baseURL: '.',
-
-  /* ----- Devices ----- */
-  isDesktop: true
+  baseURL: '.'
 };
 
 export default config;

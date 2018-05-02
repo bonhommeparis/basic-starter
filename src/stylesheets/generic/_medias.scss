@@ -1,0 +1,60 @@
+// ------------------------------------------------------------
+// Generic / Media
+// ------------------------------------------------------------
+
+//
+// Global
+//
+* {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+//
+// Setting `vertical-align` removes the whitespace that appears under `img`
+// elements when they are dropped into a page as-is. Safer alternative to
+// using `display: block;`.
+//
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+//
+// Add the correct display in iOS 4-7.
+//
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+//
+// Fluid media for responsive purposes.
+//
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+
+  &[width],
+  &[height] { max-width: none; }
+}
+
+//
+// Offset `alt` text from surrounding copy.
+//
+img {
+  font-style: italic;
+}
+
+//
+// SVG elements should fallback to their surrounding text color.
+//
+svg {
+  fill: currentColor;
+}

@@ -22,10 +22,6 @@ module.exports = {
       // path-config.json
       baseDir: ['public', 'src/static']
     }
-  },
-
-  production: {
-    rev: true
   }
 }
 

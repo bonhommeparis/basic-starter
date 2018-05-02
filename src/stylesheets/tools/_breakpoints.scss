@@ -1,0 +1,30 @@
+// ------------------------------------------------------------
+// Breakpoints
+// ------------------------------------------------------------
+
+// Query
+$media-query: 'only screen and';
+
+// Breakpoints
+$breakpoint-phablet:     641px;
+$breakpoint-tablet:      720px;
+$breakpoint-desktop:     1024px;
+$breakpoint-desktop-xl:  1280px;
+$breakpoint-desktop-xxl: 1440px;
+
+// Queries string
+$mobile:       '#{$media-query} (max-width: #{$breakpoint-phablet - 1})';
+$phablet:      '#{$media-query} (min-width: #{$breakpoint-phablet})';
+$phablet-only: '#{$media-query} (min-width: #{$breakpoint-phablet}) and (max-width: #{$breakpoint-tablet - 1})';
+$tablet:       '#{$media-query} (min-width: #{$breakpoint-tablet})';
+$tablet-only:  '#{$media-query} (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1})';
+$desktop:      '#{$media-query} (min-width: #{$breakpoint-desktop})';
+$desktop-xl:   '#{$media-query} (min-width: #{$breakpoint-desktop-xl})';
+
+// Mixins media queries
+@mixin mobile         { @media #{$mobile}       { @content; } }
+@mixin phablet        { @media #{$phablet}      { @content; } }
+@mixin tablet         { @media #{$tablet}       { @content; } }
+@mixin tablet-only    { @media #{$tablet-only}  { @content; } }
+@mixin desktop        { @media #{$desktop}      { @content; } }
+@mixin desktop-xl     { @media #{$desktop-xl}   { @content; } }

@@ -1,9 +1,9 @@
-const gulp = require('gulp');
-const del  = require('del');
-const path = require('path');
+const gulp        = require('gulp');
+const del         = require('del');
+const projectPath = require('../lib/projectPath');
 
 const cleanTask = function (cb) {
-  return del([path.resolve(process.env.PWD, PATH_CONFIG.dest)], { force: true })
+  return del([projectPath(PATH_CONFIG.dest)], { force: true })
 };
 
 gulp.task('clean', cleanTask);

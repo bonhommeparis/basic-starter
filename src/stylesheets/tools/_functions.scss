@@ -1,0 +1,109 @@
+// ------------------------------------------------------------
+// Functions
+// ------------------------------------------------------------
+
+// Converts the given pixel value to its EM quivalent.
+//
+// @param  {Number} $size                     - The pixel value to convert.
+// @param  {Number} $base [$font-size] - The assumed base font size.
+// @return {Number} Scalable pixel value in EMs.
+//
+@function em($size, $base: $px-base) {
+  @if (type-of($size) == number) {
+    @if (unit($size) != "px") {
+        @error "`#{$size}` needs to be a pixel value.";
+    }
+  } @else {
+      @error "`#{$size}` needs to be a number.";
+  }
+
+  @if (type-of($base) == number) {
+      @if (unit($base) != "px") {
+          @error "`#{$base}` needs to be a pixel value.";
+      }
+  } @else {
+      @error "`#{$base}` needs to be a number.";
+  }
+  @return ($size / $base) * 1em;
+}
+
+@function rem($pxval, $base:$px-base) {
+  @return ( $pxval / $base ) * 1rem;
+}
+
+//
+// Converts the given pixel value to its REM quivalent.
+//
+// @param  {Number} $size - The pixel value to convert.
+// @param  {Number} $base [$font-size] - The assumed base font size.
+// @return {Number} Scalable pixel value in REMs.
+//
+@function rem($size, $base: $px-base) {
+  @if (type-of($size) == number) {
+      @if (unit($size) != "px") {
+          @error "`#{$size}` needs to be a pixel value.";
+      }
+  } @else {
+      @error "`#{$size}` needs to be a number.";
+  }
+
+  @if (type-of($base) == number) {
+      @if (unit($base) != "px") {
+          @error "`#{$base}` needs to be a pixel value.";
+      }
+  } @else {
+      @error "`#{$base}` needs to be a number.";
+  }
+
+  @return ($size / $base) * 1rem;
+}
+
+//
+// Checks if a list contains a value(s).
+//
+// @argument {list} $list - The list to check against.
+// @argument {list} $values - A single value or list of values to check for.
+// @return {boolean}
+// @access private
+//
+@function list-contain($list, $values...) {
+    @each $value in $values {
+    @if type-of(index($list, $value)) != "number" {
+      @return false;
+    }
+  }
+
+  @return true;
+}
+
+//
+// Resolve whether a rule is important or not.
+//
+// @param  {Boolean}     $flag - Whether a rule is important (TRUE) or not (FALSE).
+// @return {String|Null} Returns `!important` or NULL.
+//
+@function important($flag: false) {
+  @if ($flag == true) {
+    @return !important;
+  }
+  @else if ($important == false) {
+    @return null;
+  }
+  @else {
+    @error "`#{$flag}` needs to be `true` or `false`.";
+  }
+}
+
+//
+//
+// @param  {Number} $value
+// @param  {Number} $base
+// @return {Number}
+// @acess private
+//
+@function col($value, $base: 12 ) {
+  @if (type-of($value) != number) {
+    @error "`#{$value}` needs to be a number.";
+  }
+  @return percentage($testo / $base);
+}

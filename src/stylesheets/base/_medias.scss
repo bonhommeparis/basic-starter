@@ -1,24 +1,66 @@
 // ------------------------------------------------------------
-// MEDIAS
+// Medias
 // ------------------------------------------------------------
 
-$media-query: 'only screen and';
+// -------------------------
+// Image
+// -------------------------
+.Img,
+.Img img {
+  display: block;
+  position: relative;
+}
 
-// Breakpoints
-$breakpoint-tablet: 641px;
-$breakpoint-desktop: 1024px;
-$breakpoint-desktop-xl: 1280px;
+.Img img {
+  @include size(100% auto);
+  transition: opacity $transition-image-duration, transform $transition-image-duration;
+}
 
-// Queries string
-$mobile:      '#{$media-query} (max-width: #{$breakpoint-tablet - 1})';
-$tablet:      '#{$media-query} (min-width: #{$breakpoint-tablet})';
-$tablet-only: '#{$media-query} (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1})';
-$desktop:     '#{$media-query} (min-width: #{$breakpoint-desktop})';
-$desktop-xl:  '#{$media-query} (min-width: #{$breakpoint-desktop-xl})';
+.Img[lazy-load] {
+  img { opacity: 0; }
+  &.is-loaded img { opacity: 1; }
+}
 
-// Mixins media queries
-@mixin mobile         { @media #{$mobile}       { @content; } }
-@mixin tablet         { @media #{$tablet}       { @content; } }
-@mixin tablet-only    { @media #{$tablet-only}  { @content; } }
-@mixin desktop        { @media #{$desktop}      { @content; } }
-@mixin desktop-xl     { @media #{$desktop-xl}   { @content; } }
+// -------------------------
+// Sprite Svg
+// -------------------------
+.Sprite {
+  display: inline-block;
+  svg { display: block; }
+}
+
+// -------------------------
+// Video
+// -------------------------
+.Video {
+  display: block;
+  position: relative;
+  overflow: hidden;
+
+  video {
+    position: absolute;
+    top: 0; left: 0;
+    @include size(100%);
+    object-fit: cover;
+  }
+}
+
+// -------------------------
+// Video Players
+// -------------------------
+
+// --------
+// Youtube
+// --------
+.YtVideo {
+  position: relative;
+  @include size(100% 0);
+	padding-bottom: $ratio-16-9;
+  padding-top: 25px;
+
+  iframe {
+    position: absolute;
+    top: 0; left: 0;
+    @include size(100%);
+  }
+}

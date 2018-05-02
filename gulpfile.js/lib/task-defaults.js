@@ -1,8 +1,12 @@
-const os   = require('os');
-const path = require('path');
-const pkg  = require(path.resolve(process.env.PWD, 'package.json'));
+const os          = require('os');
+const path        = require('path');
+const projectPath = require('./projectPath')
+const pkg         = require(projectPath('package.json'));
 
 module.exports = {
+
+  /* -------- Javascripts -------- */
+
   javascripts: {
     extensions: ['js', 'jsx'],
     hot: {
@@ -49,6 +53,8 @@ module.exports = {
     }
   },
 
+  /* -------- Stylesheets -------- */
+
   stylesheets: {
     sass: {
       includePaths: [
@@ -58,12 +64,16 @@ module.exports = {
     extensions: ['sass', 'scss', 'css']
   },
 
+  /* -------- Html -------- */
+
   html: {
-    dataFile: '_data/global.json',
+    dataFile: '_data/development.json',
+    dataFileProd: '_data/production.json',
     nunjucksRender: {
       envOptions: {
         watch: false
-      }
+      },
+      manageEnv: require(__dirname + '/nunjucks.config.js')
     },
     htmlmin: {
       collapseWhitespace: true
@@ -72,26 +82,38 @@ module.exports = {
     extensions: ['html', 'njk', 'json', 'svg']
   },
 
+  /* -------- Images -------- */
+
   images: {
     extensions: ['jpg', 'png', 'svg', 'gif']
   },
+
+  /* -------- Fonts -------- */
 
   fonts: {
     extensions: ['woff2', 'woff', 'eot', 'ttf', 'svg']
   },
 
+  /* -------- Gh Pages -------- */
+
   ghPages: {
     branch: 'gh-pages',
-    cacheDir: path.join(os.tmpdir(), pkg.name || 'front-starter')
+    cacheDir: path.join(os.tmpdir(), pkg.name || 'basic-starter')
   },
+
+  /* -------- SVG Sprite -------- */
 
   svgSprite: {
     svgstore: {}
   },
 
+  /* -------- Production -------- */
+
   production: {
-    rev: true
+    rev: false
   },
+
+  /* -------- Stylesheets -------- */
 
   additionalTasks: {
     initialize(gulp, PATH_CONFIG, TASK_CONFIG) {

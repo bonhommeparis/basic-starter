@@ -1,123 +1,84 @@
 // ------------------------------------------------------------
-// VARIABLES
+// Variables
 // ------------------------------------------------------------
 
 // -------------------------
-// Path
+// Paths
 // -------------------------
-$base-images: "../images";
-$base-fonts: "../fonts";
-
+$base-images: '../images';
+$base-fonts: '../fonts';
 
 // -------------------------
-// Colors
+// Typefaces
 // -------------------------
-$white: #fff;
-$black: #333;
-$red: #A22;
-
-$base-background: $white;
-$base-font-color: $black;
-$base-error-color: $red;
-
+$helvetica: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$base-font: -apple-system, $helvetica;
+$font-sans-serif: sans-serif;
 
 // -------------------------
 // Typography
 // -------------------------
 
-/* -----
-Font size
------ */
-$px-mobile: 12px;
-$px-tablet: 14px;
-$px-base: 16px;
+// --------
+// Font size
+// --------
+$px-mobile:  12px;
+$px-phablet: 14px;
+$px-tablet:  14px;
+$px-base:    16px;
 
-$px-font-xs: 12px;
-$px-font-s: 14px;
-$px-font-m: 16px;
-$px-font-l: 18px;
-$px-font-xl: 20px;
+$px-font-xxs: 10px;
+$px-font-xs:  12px;
+$px-font-s:   14px;
+$px-font-m:   16px;
+$px-font-l:   18px;
+$px-font-xl:  20px;
+$px-font-xxl: 40px;
 
+$base-line-height: 24px / $px-base;
+$base-text-margin-bottom: 1.2em;
 
-/* -----
-Font Family
------ */
-$helvetica: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-$base-font: -apple-system, $helvetica;
-
-
-/* -----
-Font Weight
------ */
+// --------
+// Font Weight
+// --------
 $thin:    100;
 $light:   300;
 $regular: 400;
 $medium:  500;
 $bold:    700;
-$back:    900;
-
-$base-line-height: 1.2;
-$base-text-margin-bottom: 1.2em;
-
+$black:   900;
 
 // -------------------------
-// Layout
+// Ratios
 // -------------------------
-
-/* -----
-Outer-container
------ */
-$max-width: 900px;
-
-/* -----
-Gutters
------ */
-
-/* -----
-Margins
------ */
-$outer-margin: 100px;
-
-/* -----
-Border
------ */
-$border-color: $black;
-$border: 1px solid $border-color;
-
-
-/* -----
-Z-Indexes
------ */
-$z-index-header:      200;
-$z-index-menu-mobile: 300;
-$z-index-popin:       400;
-
-
-/* -----
-Grid
------ */
-$col-1:  8.33333333333%;
-$col-2:  16.6666666667%;
-$col-3: 		      25.0%;
-$col-4:  33.3333333333%;
-$col-5:  41.6666666667%;
-$col-6: 		      50.0%;
-$col-7:  58.3333333333%;
-$col-8:  66.6666666667%;
-$col-9: 		      75.0%;
-$col-10: 83.3333333333%;
-$col-11: 91.6666666667%;
-$col-12: 		       100%;
-
-
-/* -----
-Ratios
------ */
+$ratio-1-2:  50.00%;
 $ratio-4-3:  75.00%;
 $ratio-7-5:  71.42%;
 $ratio-imax: 69.93%;
 $ratio-16-9: 56.25%;
 
+// -------------------------
+// Layout
+// -------------------------
+
+// --------
+// Outer Container
+// --------
+$outer-container-max-width: 1100px;
+$outer-container-margin: 100px;
+
+// --------
+// Border
+// --------
+$border-color: $black;
+$border: 1px solid $border-color;
+
+// --------
+// Z-Indexes
+// --------
+$z-index-header:      200;
+$z-index-menu-mobile: 300;
+$z-index-popin:       400;
 
 // -------------------------
 // Easing
@@ -149,14 +110,7 @@ $ease-in-out-expo:  cubic-bezier(1.000,  0.000, 0.000, 1.000);
 $ease-in-out-circ:  cubic-bezier(0.785,  0.135, 0.150, 0.860);
 $ease-in-out-back:  cubic-bezier(0.680, -0.550, 0.265, 1.550);
 
-
-/* -----
-Transition
------ */
-$transition-rollover-duration: .15s;
-$transition-rollout-duration: .3s;
-
+// -------------------------
+// Transitions
+// -------------------------
 $transition-image-duration: 2s;
-
-$transition-in-duration: 1s;
-$transition-out-duration: 1s;
