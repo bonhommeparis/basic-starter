@@ -199,3 +199,27 @@ Outer-container
     transition: opacity $duration $ease 0s, visibility 0s $duration;
   }
 }
+
+// -------------------------
+// Ratio Container
+// -------------------------
+
+@mixin ratioContainer($ratio: 100%, $useBefore: true) {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+
+  @if $useBefore {
+    &::before {
+      display: block;
+      width: 100%;
+      content: "";
+      padding-top: $ratio;
+    }
+  } @else {
+    height: 0;
+    padding-top: $ratio;
+  }
+
+}
