@@ -7,7 +7,7 @@ const handleErrors = require('./handleErrors');
 module.exports = function(err, stats) {
   if(err) throw new PluginError("webpack", err);
 
-  const statColor = stats.compilation.warnings.length < 1 ? 'green' : 'yellow';
+  var statColor = stats.compilation.warnings.length < 1 ? 'green' : 'yellow';
 
   if(stats.compilation.errors.length > 0) {
     stats.compilation.errors.forEach(function(error){

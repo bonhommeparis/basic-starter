@@ -3,7 +3,6 @@ if(global.production) return;
 const browserSync        = require('browser-sync');
 const gulp               = require('gulp');
 const webpack            = require('webpack');
-const webpackMultiConfig = require('../lib/webpack-multi-config');
 const pathToUrl          = require('../lib/pathToUrl');
 const projectPath        = require('../lib/projectPath');
 
@@ -13,7 +12,7 @@ const resolvePath = function(glob) {
 
 const browserSyncTask = function() {
 
-  const webpackConfig = webpackMultiConfig('development');
+  const webpackConfig = require('../lib/webpack-multi-config')('development');
   const compiler      = webpack(webpackConfig);
   const proxyConfig   = TASK_CONFIG.browserSync.proxy || null;
 

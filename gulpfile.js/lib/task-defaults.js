@@ -18,37 +18,23 @@ module.exports = {
     devtool: 'eval-cheap-module-source-map',
     babelLoader: {
       // "test" is derived from TASK_CONFIG.javascripts.extensions
-      // "options" is derived from TASK_CONFIG.javascripts.babel
       loader: 'babel-loader',
-      exclude: /node_modules/
-    },
-    babel: {
-      presets: [
-        [
-          "env",
-          {
-            "targets": {
-              "browsers": [
-                "last 2 versions",
-                "ie >= 10"
-              ]
+      exclude: /(node_modules|bower_components)/,
+      options: {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "useBuiltIns": "entry"
             }
-          }
+          ]
         ]
-      ]
+      }
     },
     development: {},
     production: {
-      devtool: false,
-      uglifyJsPlugin: {
-        mangle: {
-          keep_fnames: true
-        }
-      },
       definePlugin: {
-        'process.env': {
-          'NODE_ENV': JSON.stringify('production')
-        }
+        PRODUCTION: JSON.stringify(true)
       }
     }
   },
@@ -113,7 +99,7 @@ module.exports = {
     rev: false
   },
 
-  /* -------- Stylesheets -------- */
+  /* -------- Addtional Tasks -------- */
 
   additionalTasks: {
     initialize(gulp, PATH_CONFIG, TASK_CONFIG) {
