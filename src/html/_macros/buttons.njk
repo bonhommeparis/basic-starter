@@ -17,7 +17,7 @@
     {%- endif -%}
   {% endif %}
 
-  <{{ tagName }} class='o-Btn{{ modifiers | getModifiers('o-Btn') }}' {{ attributes | convertToAttributes | safe }}>
+  <{{ tagName }} class='o-Btn{{ modifiers | getModifiers('o-Btn') }}' {{ attributes | attr | safe }}>
     {{ label }}
   </{{ tagName }}>
 {%- endmacro -%}

@@ -2,9 +2,34 @@
 {#- ---------------------------------------------- Sprite
 -#}
 
-{% macro sprite(id, viewBox, classes) %}
-  {% set viewBox = viewBox or "0 0 1 1"%}
-  <span class='Sprite -{{id}} {{classes}}'>
+{%- macro sprite(id, viewBox, classes) -%}
+  {%- set viewBox = viewBox or "0 0 1 1" -%}
+  <span class='o-Sprite -{{id}} {{classes}}'>
     <svg viewBox="{{viewBox}}"><use xlink:href='#{{id}}'/></use></svg>
   </span>
-{% endmacro %}
+{%- endmacro -%}
+
+{#- ---------------------------------------------- Img
+-#}
+
+{%- macro img(src, alt='', attributes=null, lazy=false) -%}
+  {%- if lazy -%}
+  <div class='o-Img' lazy-load data-src='{{ src | safe }}' {{ attributes | attr | safe }}>
+    <img alt='{{ alt | safe }}' draggable='false' />
+  </div>
+  {%- else -%}
+  <div class='o-Img' {{ attributes | attr | safe }}>
+    <img src="{{ src | safe }}" alt='{{ alt | safe }}' draggable='false' />
+  </div>
+  {%- endif -%}
+{%- endmacro -%}
+
+{#- ---------------------------------------------- Img
+-#}
+{%- macro bgImg(src, alt='', attributes=null, lazy=false) -%}
+  {%- if lazy -%}
+  <div class='o-BgImg' lazy-load data-src='{{ src | safe }}'{{ attributes | attr | safe }}></div>
+  {%- else -%}
+  <div class='o-BgImg' style='background-image:url({{ src | safe }});' {{ attributes | attr | safe }}></div>
+  {%- endif -%}
+{%- endmacro -%}

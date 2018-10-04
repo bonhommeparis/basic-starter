@@ -1,5 +1,4 @@
 
-
 module.exports = function(env) {
 
   env.addFilter('isArray', function(array) {
@@ -12,7 +11,7 @@ module.exports = function(env) {
     return object;
   });
 
-  env.addFilter('getModifiers', function(modifiers, prefix) {
+  env.addFilter('modifiers', function(modifiers, prefix) {
 
     if (modifiers === undefined || modifiers === null) return '';
 
@@ -25,7 +24,7 @@ module.exports = function(env) {
     return result;
   });
 
-  env.addFilter('convertToAttributes', function(attributes) {
+  env.addFilter('attr', function(attributes) {
 
     if (attributes === undefined || attributes === null  || attributes.length === 0) return '';
 
@@ -34,7 +33,7 @@ module.exports = function(env) {
     for (const key in attributes) {
       if (attributes.hasOwnProperty(key)) {
         const element = attributes[key];
-        result += `${key}='${element}' `;
+        result += `${key}=${element.toString()} `;
       }
     }
 
