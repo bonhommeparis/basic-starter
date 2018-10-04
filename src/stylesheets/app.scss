@@ -3,40 +3,38 @@
 // ------------------------------------------------------------
 
 // -------------------------
+// Vendors
+// -------------------------
+@import 'normalize.css/normalize';
+
+// -------------------------
 // Settings
 // -------------------------
-@import 'settings/variables';
-@import 'settings/colors';
+@import '0-settings/variables';
+@import '0-settings/colors';
+@import '0-settings/fonts';
 
 // -------------------------
 // Tools
 // -------------------------
-@import 'tools/functions';
-@import 'tools/mixins';
-@import 'tools/breakpoints';
+@import '1-tools/functions';
+@import '1-tools/mixins';
+@import '1-tools/breakpoints';
 
 // -------------------------
 // Generic
 // -------------------------
-@import 'normalize.css/normalize';
-@import "generic/generic";
-@import "generic/medias";
-@import "generic/form";
-
-// -------------------------
-// Base
-// -------------------------
-@import 'base/fonts';
-@import 'base/typography';
-@import 'base/medias';
-@import 'base/helpers';
+@import "2-generic/generic";
+@import "2-generic/medias";
+@import "2-generic/form";
 
 // -------------------------
 // Objects
 // -------------------------
-@import "objects/buttons";
-@import "objects/form";
-@import "objects/layout";
+@import '3-objects/typography';
+@import '3-objects/medias';
+@import "3-objects/buttons";
+@import "3-objects/layout";
 
 // -------------------------
 // Components
@@ -45,3 +43,7 @@
 // -------------------------
 // Templates
 // -------------------------
+// -------------------------
+// Helpers
+// -------------------------
+@import 'helpers';

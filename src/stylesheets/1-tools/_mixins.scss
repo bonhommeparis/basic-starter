@@ -53,7 +53,6 @@
   visibility: hidden $important;
 }
 
-
 /* -----
 Utils
 ----- */
@@ -75,7 +74,6 @@ Outer-container
 	display: block;
 
   width: 100%;
-	max-width: $outer-container-max-width + 2 * $outer-container-margin;
 	margin-left: auto;
 	margin-right: auto;
 
@@ -167,6 +165,7 @@ Outer-container
 @mixin hover() {
   &.is-current,
   html.is-desktop &:hover {
+  // &:hover {
     @content;
   }
 }
@@ -184,13 +183,14 @@ Outer-container
 }
 
 // -------------------------
-// Auto Alpha
+// Animation
 // -------------------------
 @mixin animateAutoAlpha( $value, $duration, $ease:linear ) {
 
   @if $value > 0 {
     opacity: $value;
     visibility: visible;
+    pointer-events: initial;
     transition: opacity $duration $ease 0s, visibility 0s 0s;
   } @else {
     opacity: 0;
@@ -222,4 +222,18 @@ Outer-container
     padding-top: $ratio;
   }
 
+}
+
+// -------------------------
+// Form
+// -------------------------
+
+/* -----
+Placeholder
+----- */
+@mixin placeholder {
+  &:-moz-placeholder,
+  &:-ms-textarea-placeholder,
+  &:-webkit-textarea-placeholder,
+  &:placeholder { @content }
 }

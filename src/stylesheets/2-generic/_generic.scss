@@ -70,3 +70,16 @@ hr {
   border: 0;
   border-top: 1px solid #CCCCCC;
 }
+
+address {
+  user-select: text;
+}
+
+ul {
+  list-style: none;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}

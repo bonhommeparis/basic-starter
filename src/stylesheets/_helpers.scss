@@ -57,6 +57,11 @@
   user-select: none !important;
 }
 
+.u-selectable {
+  cursor: default !important;
+  user-select: text !important;
+}
+
 .u-cursor-pointer {
   cursor: pointer !important;
 }

@@ -6,14 +6,15 @@
 // Paths
 // -------------------------
 $base-images: '../images';
-$base-fonts: '../fonts';
+$font-bases: '../fonts';
 
 // -------------------------
 // Typefaces
 // -------------------------
-$helvetica: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-$base-font: -apple-system, $helvetica;
-$font-sans-serif: sans-serif;
+$helvetica: 'Helvetica', 'Arial', sans-serif;
+
+$font-base: $helvetica;
+$font-secondary: $helvetica;
 
 // -------------------------
 // Typography
@@ -22,18 +23,19 @@ $font-sans-serif: sans-serif;
 // --------
 // Font size
 // --------
-$px-mobile:  12px;
-$px-phablet: 14px;
-$px-tablet:  14px;
-$px-base:    16px;
+$px-mobile:     12px;
+$px-phablet:    14px;
+$px-tablet:     14px;
+$px-base:       16px;
 
-$px-font-xxs: 10px;
-$px-font-xs:  12px;
-$px-font-s:   14px;
-$px-font-m:   16px;
-$px-font-l:   18px;
-$px-font-xl:  20px;
-$px-font-xxl: 40px;
+$px-font-xxs:    10px;
+$px-font-xs:     12px;
+$px-font-s:      14px;
+$px-font-m:      16px;
+$px-font-l:      18px;
+$px-font-xl:     24px;
+$px-font-xxl:    30px;
+$px-font-xxxl:   36px;
 
 $base-line-height: 24px / $px-base;
 $base-text-margin-bottom: 1.2em;
@@ -61,11 +63,27 @@ $ratio-16-9: 56.25%;
 // Layout
 // -------------------------
 
+:root {
+  --column-ergo-width: 160px;
+  --padding-top-ergo: 120px;
+}
+
 // --------
 // Outer Container
 // --------
-$outer-container-max-width: 1100px;
-$outer-container-margin: 100px;
+$outer-container-margin: 20px;
+
+// -------------------------
+// Inner Container
+// -------------------------
+$inner-container-padding: 20px;
+
+// -------------------------
+// Paddings
+// -------------------------
+$paddings: 70px 100px 130px;
+
+$padding-vertical: 60px;
 
 // --------
 // Border
@@ -76,9 +94,11 @@ $border: 1px solid $border-color;
 // --------
 // Z-Indexes
 // --------
-$z-index-header:      200;
-$z-index-menu-mobile: 300;
-$z-index-popin:       400;
+$z-indexpage--header: 200;
+$z-index-header:      300;
+$z-index-menu-mobile: 400;
+$z-index-popin:       500;
+$z-index-cursors:     600;
 
 // -------------------------
 // Easing
@@ -114,3 +134,13 @@ $ease-in-out-back:  cubic-bezier(0.680, -0.550, 0.265, 1.550);
 // Transitions
 // -------------------------
 $transition-image-duration: 2s;
+
+$transition-color-duration: .5s;
+$transition-color-ease: $ease-out-cubic;
+$transition-color: $transition-color-duration $transition-color-ease;
+
+// --------
+// Buttons
+// --------
+$transition-buttons-hover-duration: .3s;
+$transition-buttons-hover-ease: $ease-in-out-quad;

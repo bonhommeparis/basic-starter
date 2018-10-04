@@ -3,12 +3,15 @@
 // ------------------------------------------------------------
 
 html {
-  min-height: 100%;
-  font-family: $base-font;
-  color: $base-font-color;
+  font-family: $font-base;
+  color: $font-base-color;
   font-size: $px-base;
   font-weight: $regular;
   line-height: $base-line-height;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  user-select: none;
 
   @include mobile  { font-size: $px-mobile; }
   @include phablet { font-size: $px-phablet; }
@@ -28,6 +31,7 @@ html {
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0;
+  font-weight: $regular;
   margin-bottom: $base-text-margin-bottom;
   line-height: $base-line-height;
 }
@@ -45,4 +49,3 @@ ul {
 // --------
 // Headings
 // --------
-.Title-1 {}

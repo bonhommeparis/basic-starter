@@ -5,25 +5,25 @@
 // -------------------------
 // Palette
 // -------------------------
-$white:    #fff;
-$grey:     #666;
-$black:    #333;
-$red:      #A22;
-$green:    #2A2;
-$blue:     #33A;
+$white:           #fff;
+$black:           #333;
+$grey:            #666;
+$blue:            #25A;
+$green:           #0A5;
+$red:             #A22;
 
 // -------------------------
 // Specific
 // -------------------------
 $background-color:  $white;
-$base-font-color:   $black;
+$font-base-color:   $black;
 $base-error-color:  $red;
 
 // Link
-$link-color:        $red;
+$link-color:        $blue;
 
 // Selection
-$selection-text-color:       $blue;
+$selection-text-color:       $green;
 $selection-background-color: $white;
 
 // -------------------------

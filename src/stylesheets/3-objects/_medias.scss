@@ -5,18 +5,18 @@
 // -------------------------
 // Image
 // -------------------------
-.Img,
-.Img img {
+.o-Img,
+.o-Img img {
   display: block;
   position: relative;
 }
 
-.Img img {
+.o-Img img {
   @include size(100% auto);
   transition: opacity $transition-image-duration, transform $transition-image-duration;
 }
 
-.Img[lazy-load] {
+.o-Img[lazy-load] {
   img { opacity: 0; }
   &.is-loaded img { opacity: 1; }
 }
@@ -24,7 +24,7 @@
 // -------------------------
 // Sprite Svg
 // -------------------------
-.Sprite {
+.o-Sprite {
   display: inline-block;
   svg { display: block; }
 }
@@ -32,7 +32,7 @@
 // -------------------------
 // Video
 // -------------------------
-.Video {
+.o-Video {
   display: block;
   position: relative;
   overflow: hidden;
@@ -52,7 +52,7 @@
 // --------
 // Youtube
 // --------
-.YtVideo {
+.o-YtVideo {
   position: relative;
   @include size(100% 0);
 	padding-bottom: $ratio-16-9;
