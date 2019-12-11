@@ -7,16 +7,17 @@ Basic starter for front-end projects.
 | Prerequisite    | How to check  | How to install                   |
 | --------------- | ------------- | -------------------------------- |
 | Node.js 8.10.9  | `node -v`     | [nodejs.org](https://nodejs.org) |
+| NPM 6.10.3      | `npm -v`      | [nodejs.org](https://nodejs.org) |
 
 ## Getting started
 ```
-yarn
+npm
 ```
 
 or
 
 ```
-npm
+yarn
 ```
 
 ### Configuration
@@ -24,7 +25,7 @@ Directory and top level settings are convienently exposed in gulpfile.js/config.
 
 ### Start compiling, serving, and watching files
 ```
-yarn start
+npm start
 ```
 
 Aliases: `yarn run gulp`
@@ -34,17 +35,10 @@ Compile JS via Babel, SCSS, Svg in sprite and inject them in the compiled HTML.
 
 ### Build production-ready files
 ```
-yarn run production
+npm run prod
 ```
 
 JS and CSS are uglified and minified, HTML are minified and console give you a file size reporting.
-
-### Deploy
-```
-yarn run deploy
-```
-
-Launch `production` task and deploy the destination folder to the github's page.
 
 ## HTML
 

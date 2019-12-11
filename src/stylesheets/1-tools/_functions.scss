@@ -27,7 +27,7 @@
   @return ($size / $base) * 1em;
 }
 
-@function rem($pxval, $base:$px-base) {
+@function rem($pxval, $base: $px-base) {
   @return ( $pxval / $base ) * 1rem;
 }
 
@@ -56,6 +56,34 @@
   }
 
   @return ($size / $base) * 1rem;
+}
+
+
+//
+// Converts the given pixel value to its REM quivalent.
+//
+// @param  {Number} $size - The pixel value to convert.
+// @param  {Number} $base [$font-size] - The assumed base font size.
+// @return {Number} Scalable pixel value in REMs.
+//
+@function vw($size, $base: 1280px) {
+  @if (type-of($size) == number) {
+      @if (unit($size) != "px") {
+          @error "`#{$size}` needs to be a pixel value.";
+      }
+  } @else {
+      @error "`#{$size}` needs to be a number.";
+  }
+
+  @if (type-of($base) == number) {
+      @if (unit($base) != "px") {
+          @error "`#{$base}` needs to be a pixel value.";
+      }
+  } @else {
+      @error "`#{$base}` needs to be a number.";
+  }
+
+  @return ($size / $base) * 100vw;
 }
 
 //
@@ -94,16 +122,39 @@
   }
 }
 
-//
+
+@function _grid-gutter-percent($grid: $grid-settings) {
+  $_gutter: map-get($grid, gutter);
+  $_width: map-get($grid, width);
+  @return percentage($_gutter / $_width);
+}
+
+@function _grid-column-width($grid: $grid-settings) {
+
+  $_gutter-percent: _grid-gutter-percent($grid);
+  $_columns: map-get($grid, columns);
+
+  @return (100% - ($_gutter-percent * ($_columns - 1))) / 12;
+}
+
 //
 // @param  {Number} $value
 // @param  {Number} $base
 // @return {Number}
 // @acess private
 //
-@function col($value, $base: 12 ) {
+@function col($grid, $value, $addLastGutter: false) {
   @if (type-of($value) != number) {
     @error "`#{$value}` needs to be a number.";
   }
-  @return percentage($testo / $base);
+
+  $_gutter: _grid-gutter-percent($grid);
+  $_columns-width: _grid-column-width($grid);
+
+  @if($addLastGutter) {
+    @return $value * ($_columns-width + $_gutter);
+  }
+  @else {
+    @return $value * ($_columns-width) + ($value - 1 )  * $_gutter;
+  }
 }

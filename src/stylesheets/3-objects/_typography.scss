@@ -1,51 +1,34 @@
 // ------------------------------------------------------------
-// TYPOGRAPHY
+// Typography
 // ------------------------------------------------------------
-
 html {
-  font-family: $font-base;
-  color: $font-base-color;
-  font-size: $px-base;
-  font-weight: $regular;
-  line-height: $base-line-height;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: $font-base;
+    color: $font-base-color;
+    font-size: $px-base;
+    font-weight: $regular;
+    line-height: $base-line-height;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-  user-select: none;
+    user-select: none;
 
-  @include mobile  { font-size: $px-mobile; }
-  @include phablet { font-size: $px-phablet; }
-  @include tablet  { font-size: $px-tablet; }
-  @include desktop { font-size: $px-base; }
+    @include mobile  { font-size: $px-mobile; }
+    @include phablet { font-size: $px-phablet; }
+    @include tablet  { font-size: $px-tablet; }
+    @include desktop { font-size: $px-base; }
 }
 
 ::selection {
-  background-color: $selection-background-color;
-  color: $selection-text-color;
-  text-shadow: none;
+    background-color: $selection-background-color;
+    color: $selection-text-color;
+    text-shadow: none;
 }
 
-// --------
-// Global
-// --------
+
 h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0;
-  font-weight: $regular;
-  margin-bottom: $base-text-margin-bottom;
-  line-height: $base-line-height;
+    margin: 0;
+    padding: 0;
+    font-weight: $regular;
+    margin-bottom: $base-text-margin-bottom;
+    line-height: $base-line-height;
 }
-
-a {
-  text-decoration: none;
-  &:focus { outline: none; }
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-}
-
-// --------
-// Headings
-// --------

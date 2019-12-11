@@ -6,11 +6,10 @@
 $media-query: 'only screen and';
 
 // Breakpoints
-$breakpoint-phablet:     641px;
-$breakpoint-tablet:      720px;
-$breakpoint-desktop:     1024px;
-$breakpoint-desktop-xl:  1280px;
-$breakpoint-desktop-xxl: 1440px;
+$breakpoint-phablet:     em(641px, 16px);
+$breakpoint-tablet:      em(768px, 16px);
+$breakpoint-desktop:     em(1024px, 16px);
+$breakpoint-desktop-xl:  em(1440px, 16px);
 
 // Queries string
 $mobile:       '#{$media-query} (max-width: #{$breakpoint-phablet - 1})';

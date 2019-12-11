@@ -8,7 +8,7 @@ module.exports = {
   /* -------- Javascripts -------- */
 
   javascripts: {
-    extensions: ['js', 'jsx'],
+    extensions: ['js', 'jsx', 'mjs'],
     hot: {
       reload: true,
       noInfo: false,
@@ -17,24 +17,33 @@ module.exports = {
     },
     devtool: 'eval-cheap-module-source-map',
     babelLoader: {
-      // "test" is derived from TASK_CONFIG.javascripts.extensions
       loader: 'babel-loader',
-      exclude: /(node_modules|bower_components)/,
+      exclude: /(node_modules)/,
       options: {
         "presets": [
           [
             "@babel/preset-env",
             {
-              "useBuiltIns": "entry"
+              "useBuiltIns": "entry",
+              "corejs": '3.1.4',
+              "modules": false
             }
           ]
         ]
       }
     },
-    development: {},
+    development: {
+      definePlugin: {
+        'process.env': {
+          'DEBUG': true
+        }
+      }
+    },
     production: {
       definePlugin: {
-        PRODUCTION: JSON.stringify(true)
+        'process.env': {
+          'DEBUG': false
+        }
       }
     }
   },
@@ -42,10 +51,8 @@ module.exports = {
   /* -------- Stylesheets -------- */
 
   stylesheets: {
-    sass: {
-      includePaths: [
-        './node_modules'
-      ]
+    cssnano: {
+      zindex: false
     },
     extensions: ['sass', 'scss', 'css']
   },
@@ -53,18 +60,17 @@ module.exports = {
   /* -------- Html -------- */
 
   html: {
-    dataFile: '_data/development.json',
-    dataFileProd: '_data/production.json',
+    datasFile: '_datas/datas.json',
     nunjucksRender: {
       envOptions: {
         watch: false
       },
-      manageEnv: require(__dirname + '/nunjucks.config.js')
+      manageEnv: require(__dirname + '/../config/nunjucks.config.js')
     },
     htmlmin: {
       collapseWhitespace: true
     },
-    excludeFolders: ['_layouts', '_shared', '_macros', '_data', '_svgs'],
+    excludeFolders: ['_layouts', '_shared', '_macros', '_datas', '_svgs', '_views'],
     extensions: ['html', 'njk', 'json', 'svg']
   },
 
@@ -74,29 +80,12 @@ module.exports = {
     extensions: ['jpg', 'png', 'svg', 'gif']
   },
 
-  /* -------- Fonts -------- */
-
-  fonts: {
-    extensions: ['woff2', 'woff', 'eot', 'ttf', 'svg']
-  },
-
-  /* -------- Gh Pages -------- */
-
-  ghPages: {
-    branch: 'gh-pages',
-    cacheDir: path.join(os.tmpdir(), pkg.name || 'basic-starter')
-  },
-
   /* -------- SVG Sprite -------- */
 
-  svgSprite: {
-    svgstore: {}
-  },
-
-  /* -------- Production -------- */
-
-  production: {
-    rev: false
+  icons: {
+    svgstore: {
+      inlineSvg: true
+    }
   },
 
   /* -------- Addtional Tasks -------- */

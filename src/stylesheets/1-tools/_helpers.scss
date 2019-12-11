@@ -16,6 +16,15 @@
   pointer-events: none !important;
 }
 
+.u-db {
+  display: block;
+  position: relative;
+}
+
+.u-dib {
+  display: inline-block;
+}
+
 /*
   Hide only visually, but have it available for screen readers:
   http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
@@ -107,17 +116,16 @@
   right: 0;
 }
 
-
 // -------------------------
 // Center an element
 // -------------------------
 
-.u-vertical-center {
+.u-vert-center {
   position: relative;
 	display: table;
 	@include size(100%);
 
-	.u-vertical-el {
+	.u-vert-el {
 		display: table-cell;
 		vertical-align: middle
 	}
@@ -144,31 +152,23 @@
   margin: auto;
 }
 
-
-.u-inlineList {
+.u-wrapper {
   position: relative;
-}
-
-.u-inlineList-item,
-.u-inlineList-item--top,
-.u-inlineList-item--middle,
-.u-inlineList-item--bottom {
-  position: relative;
-  display: inline-block;
-}
-
-.u-inlineList-item--top {
-  vertical-align: top;
-}
-
-.u-inlineList-item--middle {
-  vertical-align: middle;
-}
-
-.u-inlineList-item--bottom {
-  vertical-align: bottom;
+  width: 100%;
+  height: 100%;
 }
 
 // -------------------------
-// Ratios
+// Position
 // -------------------------
+
+.u-absolute { position: absolute; }
+.u-relative { position: relative; }
+.u-fixed { position: fixed; }
+
+.u-pos-tl { top: 0; left: 0; }
+.u-pos-br { bottom: 0; right: 0; }
+.u-pos-lbr { bottom: 0; left: 0; right: 0; }
+
+.u-fit, .u-fit-w { width: 100%; }
+.u-fit-h { height: 100%; }

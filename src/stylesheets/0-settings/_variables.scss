@@ -6,7 +6,7 @@
 // Paths
 // -------------------------
 $base-images: '../images';
-$font-bases: '../fonts';
+$base-fonts: '../fonts';
 
 // -------------------------
 // Typefaces
@@ -35,20 +35,20 @@ $px-font-m:      16px;
 $px-font-l:      18px;
 $px-font-xl:     24px;
 $px-font-xxl:    30px;
-$px-font-xxxl:   36px;
 
-$base-line-height: 24px / $px-base;
+$base-line-height: 1.4;
 $base-text-margin-bottom: 1.2em;
 
 // --------
 // Font Weight
 // --------
-$thin:    100;
-$light:   300;
-$regular: 400;
-$medium:  500;
-$bold:    700;
-$black:   900;
+$thin:      100;
+$light:     300;
+$regular:   400;
+$medium:    500;
+$semi-bold: 600;
+$bold:      700;
+$black:     900;
 
 // -------------------------
 // Ratios
@@ -63,27 +63,25 @@ $ratio-16-9: 56.25%;
 // Layout
 // -------------------------
 
-:root {
-  --column-ergo-width: 160px;
-  --padding-top-ergo: 120px;
-}
-
 // --------
 // Outer Container
 // --------
-$outer-container-margin: 20px;
+$outer-container-gutter: 25px;
+$outer-container-max-width: 980px;
 
-// -------------------------
+// --------
 // Inner Container
-// -------------------------
+// --------
 $inner-container-padding: 20px;
 
-// -------------------------
-// Paddings
-// -------------------------
-$paddings: 70px 100px 130px;
-
-$padding-vertical: 60px;
+// --------
+// Grid
+// --------
+$grid-settings: (
+  width: $outer-container-max-width,
+  columns: 12,
+  gutter: 34px
+);
 
 // --------
 // Border
@@ -94,11 +92,10 @@ $border: 1px solid $border-color;
 // --------
 // Z-Indexes
 // --------
-$z-indexpage--header: 200;
 $z-index-header:      300;
-$z-index-menu-mobile: 400;
 $z-index-popin:       500;
-$z-index-cursors:     600;
+$z-index-preloader:   600;
+$z-index-cursors:     700;
 
 // -------------------------
 // Easing
@@ -133,7 +130,7 @@ $ease-in-out-back:  cubic-bezier(0.680, -0.550, 0.265, 1.550);
 // -------------------------
 // Transitions
 // -------------------------
-$transition-image-duration: 2s;
+$transition-image-duration: .7s;
 
 $transition-color-duration: .5s;
 $transition-color-ease: $ease-out-cubic;
@@ -142,5 +139,8 @@ $transition-color: $transition-color-duration $transition-color-ease;
 // --------
 // Buttons
 // --------
-$transition-buttons-hover-duration: .3s;
+$transition-buttons-hover-duration: .15s;
 $transition-buttons-hover-ease: $ease-in-out-quad;
+
+$transition-buttons-out-duration: .3s;
+$transition-buttons-out-ease: $ease-in-out-quad;

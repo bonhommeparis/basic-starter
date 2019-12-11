@@ -2,15 +2,13 @@
 // Generic
 // ------------------------------------------------------------
 
-html {
-  box-sizing: border-box;
-}
+
 
 //
 // Add the correct display in IE 10-.
 // 1. Add the correct display in IE.
 //
-template, /* [1] */
+// template, /* [1] */
 [hidden] {
   display: none;
 }
@@ -18,7 +16,7 @@ template, /* [1] */
 *,
 :before,
 :after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 address {
@@ -57,11 +55,6 @@ a, area, button, input, label, select, textarea, [tabindex] {
   text-decoration: none;
 }
 
-table {
-  border-spacing: 0;
-  border-collapse: collapse;
-}
-
 hr {
   display: block;
   margin: 1em 0;
@@ -71,15 +64,4 @@ hr {
   border-top: 1px solid #CCCCCC;
 }
 
-address {
-  user-select: text;
-}
-
-ul {
-  list-style: none;
-}
-
-ul, li {
-  margin: 0;
-  padding: 0;
-}
+address { user-select: text; }

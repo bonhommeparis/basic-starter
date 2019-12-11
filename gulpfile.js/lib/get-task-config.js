@@ -5,14 +5,7 @@ const mergeWith    = require('lodash/mergeWith');
 
 
 const getTaskConfig = function() {
-
-  const defaultConfigPath = projectPath('config/task-config.js');
-
-  if (fs.existsSync(defaultConfigPath)) {
-    return require(defaultConfigPath);
-  }
-
-  return require('../task-config');
+  return require('../config/task.config');
 };
 
 const withDefaults = function(taskConfig) {

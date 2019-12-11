@@ -1,9 +1,15 @@
 
 module.exports = function(env) {
 
-  env.addFilter('isArray', function(array) {
+  // _______________________________________________________Filters
+
+  env.addFilter('isarray', function(array) {
     return Array.isArray(array);
   });
+
+  env.addFilter('isstring', (value) => {
+    return typeof value === 'string';
+  })
 
   env.addFilter('set', function(object, key, value) {
     if (object === null) object = {};
@@ -33,11 +39,9 @@ module.exports = function(env) {
     for (const key in attributes) {
       if (attributes.hasOwnProperty(key)) {
         const element = attributes[key];
-        result += `${key}=${element.toString()} `;
+        result += `${key}="${element.toString()}" `;
       }
     }
-
     return result;
   });
-
 };

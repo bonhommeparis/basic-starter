@@ -2,9 +2,9 @@
 // Layout
 // ------------------------------------------------------------
 
+html { overscroll-behavior-y: none; }
+
 // -------------------------
-// OuterContainer
+// OuterContainer/InnerContainer
 // -------------------------
-.o-OuterContainer {
-  @include outerContainer();
-}
+.l-OuterContainer { @include outerContainer(); }

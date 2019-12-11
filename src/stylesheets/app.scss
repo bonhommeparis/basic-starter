@@ -3,47 +3,64 @@
 // ------------------------------------------------------------
 
 // -------------------------
-// Vendors
-// -------------------------
-@import 'normalize.css/normalize';
-
-// -------------------------
-// Settings
+// 0 - Settings
 // -------------------------
 @import '0-settings/variables';
 @import '0-settings/colors';
 @import '0-settings/fonts';
 
 // -------------------------
-// Tools
+// 1 - Tools
 // -------------------------
 @import '1-tools/functions';
 @import '1-tools/mixins';
 @import '1-tools/breakpoints';
+@import '1-tools/helpers';
 
 // -------------------------
-// Generic
+// 2 - Generic
 // -------------------------
+@import '2-generic/reset';
 @import "2-generic/generic";
 @import "2-generic/medias";
 @import "2-generic/form";
 
 // -------------------------
-// Objects
+// 3 - Objects
 // -------------------------
 @import '3-objects/typography';
 @import '3-objects/medias';
 @import "3-objects/buttons";
-@import "3-objects/layout";
+@import '3-objects/layout';
 
 // -------------------------
-// Components
+// 4 - Components
 // -------------------------
 
 // -------------------------
-// Templates
+// 5 - Templates
 // -------------------------
+
+
 // -------------------------
 // Helpers
 // -------------------------
-@import 'helpers';
+
+#Helpers {
+//   display: none;
+  z-index: 9998;
+  pointer-events: none;
+
+  @include fixed();
+
+  > div {
+    @include outerContainer();
+    height: 100%;
+
+    > div {
+      @include size(100%);
+      border-right: 1px $color-grid-debug-stripe solid;
+      border-left: 1px $color-grid-debug-stripe solid;
+    }
+  }
+}

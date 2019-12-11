@@ -12,20 +12,6 @@
 }
 
 //
-// Setting `vertical-align` removes the whitespace that appears under `img`
-// elements when they are dropped into a page as-is. Safer alternative to
-// using `display: block;`.
-//
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-//
 // Add the correct display in iOS 4-7.
 //
 audio:not([controls]) {

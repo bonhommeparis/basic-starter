@@ -2,8 +2,8 @@ const compact = require('lodash/compact');
 const isEmpty = require('lodash/isEmpty');
 
 // Grouped by what can run in parallel;
-const assetTasks = ['fonts', 'images', 'svgSprite'];
-const codeTasks = ['html', 'stylesheets', 'javascripts'];
+const assetTasks = ['static', 'images', 'icons'];
+const codeTasks = ['stylesheets', 'html', 'javascripts'];
 
 module.exports = function(env) {
 

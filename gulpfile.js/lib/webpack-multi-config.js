@@ -1,18 +1,18 @@
-'use strict'
-
 if( !TASK_CONFIG.javascripts ) return;
 
-const path          = require('path');
-const pathToUrl     = require('./pathToUrl');
-const webpack       = require('webpack');
-const projectPath   = require('./projectPath');
-const querystring   = require('querystring');
+const path        = require('path');
+const pathToUrl   = require('./pathToUrl');
+const webpack     = require('webpack');
+const projectPath = require('./projectPath');
+const querystring = require('querystring');
 
 module.exports = function(env) {
 
   const jsSrc       = projectPath(PATH_CONFIG.src, PATH_CONFIG.javascripts.src);
   const jsDest      = projectPath(PATH_CONFIG.dest, PATH_CONFIG.javascripts.dest);
   const publicPath  = pathToUrl(TASK_CONFIG.javascripts.publicPath || PATH_CONFIG.javascripts.dest, '/');
+
+  const nunjucksTemplate = path.resolve(process.env.PWD, PATH_CONFIG.src, PATH_CONFIG.html.src);
 
   function ensureLeadingDot(string) {
     return string.indexOf('.') === 0 ? string : `.${string}`;
@@ -29,10 +29,15 @@ module.exports = function(env) {
     output: {
       path: path.normalize(jsDest),
       filename: '[name].js',
-      publicPath: publicPath
+      publicPath: publicPath,
+      globalObject: 'self'
     },
     module: {
       rules: [ TASK_CONFIG.javascripts.babelLoader ]
+    },
+    resolve: {
+      extensions: extensions,
+      modules: [nunjucksTemplate, 'node_modules']
     },
     plugins: []
   };

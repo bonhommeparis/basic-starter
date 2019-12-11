@@ -1,4 +1,4 @@
-var path = require('path')
+const path = require('path');
 
 /**
  * A function that can be used to resolve a path relatively to the
@@ -14,6 +14,6 @@ var path = require('path')
  * The returned path is a fully resolved absolute path relative to
  * the project root directory.
  */
-module.exports = function projectPath(...paths) {
+module.exports = (...paths) => {
   return path.resolve(process.env.INIT_CWD, ...paths);
 }

@@ -64,26 +64,30 @@ Utils
   }
 }
 
-/* -----
-Outer-container
------ */
+@mixin removeClearfix() {
+  &::after {
+    content: none;
+  }
+}
+
+// --------
+// Outer Container
+// --------
 @mixin outerContainer() {
-  @include clearfix();
+    position: relative;
+    display: block;
 
-  position: relative;
-	display: block;
+    margin-left: auto;
+    margin-right: auto;
 
-  width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-
-  border-color: transparent;
-  border-style: solid;
-  border-top-width: 0;
-  border-bottom-width: 0;
-
-  border-left-width: $outer-container-margin;
-  border-right-width: $outer-container-margin;
+    border-color: transparent;
+    border-style: solid;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-width: rem($outer-container-gutter);
+    border-right-width: rem($outer-container-gutter);
+    width: 100%;
+    max-width: rem($outer-container-max-width + $outer-container-gutter * 2);
 }
 
 // -------------------------
@@ -148,6 +152,8 @@ Outer-container
     border: 0;
     padding: 0;
   }
+
+  > * { pointer-events: none;}
 }
 
 @mixin unselectable($important: true) {
@@ -165,7 +171,6 @@ Outer-container
 @mixin hover() {
   &.is-current,
   html.is-desktop &:hover {
-  // &:hover {
     @content;
   }
 }
@@ -204,11 +209,13 @@ Outer-container
 // Ratio Container
 // -------------------------
 
-@mixin ratioContainer($ratio: 100%, $useBefore: true) {
+@mixin ratioContainer($ratio: 100%, $overflow:true, $useBefore: true) {
   position: relative;
   display: block;
-  width: 100%;
-  overflow: hidden;
+
+  @if $overflow {
+    overflow: hidden;
+  }
 
   @if $useBefore {
     &::before {

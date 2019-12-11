@@ -5,12 +5,10 @@
 // -------------------------
 // Palette
 // -------------------------
-$white:           #fff;
-$black:           #333;
-$grey:            #666;
-$blue:            #25A;
-$green:           #0A5;
-$red:             #A22;
+$white:            #fff;
+$black:            #000;
+$red:              #e32a37;
+$green:            #7ed321;
 
 // -------------------------
 // Specific
@@ -20,11 +18,13 @@ $font-base-color:   $black;
 $base-error-color:  $red;
 
 // Link
-$link-color:        $blue;
+$link-color: $white;
 
 // Selection
-$selection-text-color:       $green;
-$selection-background-color: $white;
+$selection-text-color:       $white;
+$selection-background-color: $red;
+
+$color-highlight: $white;
 
 // -------------------------
 // Social Colors
@@ -33,3 +33,10 @@ $facebook-color:  #3B5998;
 $instagram-color: #E1306C;
 $youtube-color:   #CD201F;
 $twitter-color:   #1DA1F2;
+
+
+// -------------------------
+// Debug
+// -------------------------
+$color-grid-debug-stripe: rgba(cyan, .3);
+$color-grid-debug-bg: transparent;

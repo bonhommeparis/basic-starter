@@ -11,7 +11,10 @@
   position: relative;
 }
 
+.o-Img { user-select: none; }
+
 .o-Img img {
+  pointer-events: none;
   @include size(100% auto);
   transition: opacity $transition-image-duration, transform $transition-image-duration;
 }
@@ -19,6 +22,22 @@
 .o-Img[lazy-load] {
   img { opacity: 0; }
   &.is-loaded img { opacity: 1; }
+}
+
+.o-BgImg[lazy-load] {
+  opacity: 0;
+  transition: opacity $transition-image-duration;
+  &.is-loaded { opacity: 1;}
+}
+
+.o-BgImg {
+  background-size: cover;
+  background-position: 50%;
+
+  &--pattern {
+    background-size: auto;
+    background-repeat: repeat;
+  }
 }
 
 // -------------------------
@@ -42,25 +61,5 @@
     top: 0; left: 0;
     @include size(100%);
     object-fit: cover;
-  }
-}
-
-// -------------------------
-// Video Players
-// -------------------------
-
-// --------
-// Youtube
-// --------
-.o-YtVideo {
-  position: relative;
-  @include size(100% 0);
-	padding-bottom: $ratio-16-9;
-  padding-top: 25px;
-
-  iframe {
-    position: absolute;
-    top: 0; left: 0;
-    @include size(100%);
   }
 }
